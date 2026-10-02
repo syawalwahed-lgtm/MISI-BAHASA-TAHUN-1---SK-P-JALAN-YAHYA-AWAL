@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misi Bahasa Melayu Tahun 1 - SYAWAL</title>
+<style>
+:root{--purple:#6d28d9;--violet:#8b5cf6;--ink:#172033;--muted:#64748b;--line:#e5e7eb;--gold:#f59e0b}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:linear-gradient(135deg,#f5f3ff,#eff6ff);min-height:100vh}
+.wrap{max-width:780px;margin:auto;padding:18px}.top{text-align:center;padding:12px 6px 16px}h1{font-size:clamp(28px,7vw,42px);margin:4px 0}.sub{color:var(--muted);margin:0}
+.badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}.badge{padding:7px 11px;border-radius:999px;background:#ede9fe;font-size:13px;font-weight:800}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 12px 35px #0000000c;overflow:hidden}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px}.level{padding:12px 8px;border:2px solid var(--line);border-radius:15px;text-align:center;font-weight:800;background:#fff}.level.active{border-color:var(--purple);background:#ede9fe}.level.done{border-color:#86efac;background:#f0fdf4}
+.stats{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:800;margin-bottom:10px}.stars{letter-spacing:3px;font-size:20px;color:var(--gold)}
+.progress{height:9px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:8px 0 20px}.fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--violet));width:0;transition:.45s}
+.q{font-size:22px;font-weight:900;line-height:1.4;margin:10px 0 18px}.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.opt{border:2px solid var(--line);border-radius:16px;background:#fff;padding:15px;min-height:58px;font-size:17px;font-weight:850;cursor:pointer;transition:.15s}.opt:hover{transform:translateY(-2px);border-color:var(--violet)}.opt:disabled{cursor:default}.correct{background:#dcfce7!important;border-color:#16a34a!important;animation:pop .35s}.wrong{background:#fee2e2!important;border-color:#dc2626!important;animation:shake .35s}
+.feedback{min-height:32px;margin:15px 0 3px;font-weight:900}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}.btn{border:0;border-radius:14px;padding:12px 18px;font-weight:900;background:var(--purple);color:#fff;cursor:pointer}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.alt{background:#e5e7eb;color:var(--ink)}
+.center{text-align:center}.bigstars{font-size:54px;letter-spacing:5px;animation:float 1.8s infinite ease-in-out}.score{font-size:54px;font-weight:950}.mission{font-size:14px;color:var(--muted);font-weight:700}.credit{text-align:center;color:var(--muted);font-size:12px;margin:15px 0}
+.confetti{position:relative;height:0;overflow:visible}.piece{position:absolute;font-size:22px;animation:fall 1.1s ease-out forwards;pointer-events:none}
+@keyframes pop{50%{transform:scale(1.05)}100%{transform:scale(1)}}@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}100%{transform:translateX(0)}}@keyframes float{50%{transform:translateY(-6px)}}@keyframes fall{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(120px) rotate(260deg);opacity:0}}
+@media(max-width:520px){.wrap{padding:10px}.card{padding:16px}.levels{gap:6px}.level{font-size:13px;padding:10px 4px}.opts{grid-template-columns:1fr}.q{font-size:20px}}
+</style>
+
+<style>
+/* VISUAL UPGRADE */
+body{background:
+radial-gradient(circle at 10% 10%,#ddd6fe 0,transparent 28%),
+radial-gradient(circle at 90% 15%,#bfdbfe 0,transparent 25%),
+linear-gradient(135deg,#faf5ff,#eff6ff)}
+.top{position:relative}
+.top:before,.top:after{content:"⭐";position:absolute;font-size:34px;animation:float 2.2s ease-in-out infinite}
+.top:before{left:5%;top:10px}.top:after{right:5%;top:34px;animation-delay:.5s}
+h1{background:linear-gradient(90deg,#5b21b6,#7c3aed,#2563eb);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 5px 18px #7c3aed22}
+.sub{font-size:16px}
+.card{border:2px solid #ffffff;box-shadow:0 18px 50px #4c1d9530;background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
+.level{position:relative;overflow:hidden;transition:.2s;box-shadow:0 5px 12px #00000008}
+.level:after{content:"";position:absolute;width:60px;height:60px;border-radius:50%;right:-25px;top:-25px;background:#ede9fe}
+.level.active{transform:translateY(-4px);box-shadow:0 9px 18px #7c3aed30}
+.stats{background:#f8fafc;border-radius:16px;padding:10px 13px}
+.stars{font-size:23px;text-shadow:0 2px 8px #f59e0b55}
+.q{background:linear-gradient(135deg,#faf5ff,#f5f3ff);border:2px solid #ede9fe;border-radius:20px;padding:18px;box-shadow:inset 0 1px #fff}
+.opt{box-shadow:0 6px 14px #00000008;position:relative;overflow:hidden}
+.opt:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,#fff8,transparent);transform:translateX(-110%);transition:.5s}
+.opt:hover:before{transform:translateX(110%)}
+.btn{box-shadow:0 7px 16px #6d28d944;transition:.15s}.btn:hover{transform:translateY(-2px)}
+.mission{display:inline-block;background:#f1f5f9;padding:5px 10px;border-radius:999px}
+.bigstars{filter:drop-shadow(0 7px 10px #f59e0b55)}
+.score{background:linear-gradient(90deg,#f59e0b,#f97316);-webkit-background-clip:text;background-clip:text;color:transparent}
+</style>
+
+
+<style>
+/* COLOURFUL KIDS THEME */
+body{
+ background:
+ radial-gradient(circle at 8% 12%,#fde68a 0,transparent 18%),
+ radial-gradient(circle at 92% 12%,#f9a8d4 0,transparent 20%),
+ radial-gradient(circle at 8% 88%,#86efac 0,transparent 20%),
+ radial-gradient(circle at 92% 88%,#93c5fd 0,transparent 20%),
+ linear-gradient(135deg,#fff7ed,#fdf4ff 45%,#eff6ff);
+}
+.top h1{
+ background:linear-gradient(90deg,#ec4899,#f97316,#eab308,#22c55e,#06b6d4,#8b5cf6);
+ -webkit-background-clip:text;background-clip:text;color:transparent;
+ font-weight:1000;
+}
+.badges .badge:nth-child(1){background:#fef3c7;color:#92400e}
+.badges .badge:nth-child(2){background:#dbeafe;color:#1e40af}
+.badges .badge:nth-child(3){background:#fce7f3;color:#9d174d}
+.card{
+ background:rgba(255,255,255,.96);
+ border:3px solid #fff;
+ box-shadow:0 18px 45px #7c3aed24;
+}
+.level:nth-child(1){background:linear-gradient(135deg,#dcfce7,#bbf7d0);border-color:#86efac}
+.level:nth-child(2){background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#fcd34d}
+.level:nth-child(3){background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-color:#93c5fd}
+.level.active:nth-child(1){background:linear-gradient(135deg,#86efac,#4ade80);border-color:#16a34a}
+.level.active:nth-child(2){background:linear-gradient(135deg,#fde68a,#fbbf24);border-color:#d97706}
+.level.active:nth-child(3){background:linear-gradient(135deg,#93c5fd,#60a5fa);border-color:#2563eb}
+.level.done{filter:saturate(1.1)}
+.stats{background:linear-gradient(90deg,#fce7f3,#fef3c7,#dcfce7,#dbeafe)}
+.stars{color:#f59e0b;text-shadow:0 0 8px #fbbf24}
+.q{
+ background:linear-gradient(135deg,#fdf2f8,#fff7ed,#eff6ff);
+ border:3px dashed #c4b5fd;
+}
+.opt{background:#fff;border-width:3px}
+.opt:nth-child(1){border-color:#f9a8d4;background:#fff7fb}
+.opt:nth-child(2){border-color:#93c5fd;background:#f5f9ff}
+.opt:nth-child(3){border-color:#86efac;background:#f5fff8}
+.opt:nth-child(4){border-color:#fcd34d;background:#fffdf3}
+.opt:hover{transform:translateY(-4px) scale(1.01)}
+.correct{background:#bbf7d0!important;border-color:#16a34a!important}
+.wrong{background:#fecaca!important;border-color:#dc2626!important}
+.btn{background:linear-gradient(90deg,#ec4899,#8b5cf6);border:2px solid #fff}
+.btn.alt{background:linear-gradient(90deg,#bae6fd,#ddd6fe);color:#312e81}
+.mission{background:linear-gradient(90deg,#fce7f3,#fef3c7);color:#7c2d12;border:1px solid #f9a8d4}
+.bigstars{font-size:64px;text-shadow:0 0 18px #fbbf24}
+.score{background:linear-gradient(90deg,#ec4899,#f59e0b,#22c55e,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.credit strong{color:#7c3aed}
+@keyframes rainbow{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+.top:before,.top:after{animation:float 2s ease-in-out infinite,rainbow 5s linear infinite}
+</style>
+
+
+<style>
+/* ANIMATED CARTOON BACKGROUND */
+body{overflow-x:hidden}
+body:before{
+ content:"☁️        ☁️             ☁️";
+ position:fixed;z-index:-2;top:7%;left:-30%;width:160%;
+ font-size:58px;letter-spacing:80px;white-space:nowrap;
+ animation:cloudMove 28s linear infinite;opacity:.72;pointer-events:none
+}
+body:after{
+ content:"🌈  ⭐  ✨  🌈  ⭐  ✨  🌈";
+ position:fixed;z-index:-3;bottom:4%;left:-20%;width:150%;
+ font-size:34px;white-space:nowrap;
+ animation:skyMove 18s linear infinite;opacity:.65;pointer-events:none
+}
+.wrap:before{
+ content:"🌳        🦋          🌼       🐝          🌳";
+ position:fixed;z-index:-1;bottom:-3px;left:-15%;width:140%;
+ font-size:38px;white-space:nowrap;
+ animation:groundMove 24s linear infinite;pointer-events:none
+}
+.top:before{content:"🚀";font-size:44px;left:1%;top:65px;animation:rocket 5s ease-in-out infinite}
+.top:after{content:"⭐";font-size:38px;right:3%;top:55px;animation:twinkle 1.2s ease-in-out infinite}
+.card{position:relative}
+.card:before{
+ content:"✨";position:absolute;right:22px;top:18px;font-size:24px;
+ animation:twinkle 1.5s ease-in-out infinite
+}
+@keyframes cloudMove{0%{transform:translateX(0)}100%{transform:translateX(55%)}}
+@keyframes skyMove{0%{transform:translateX(0)}100%{transform:translateX(35%)}}
+@keyframes groundMove{0%{transform:translateX(0)}100%{transform:translateX(22%)}}
+@keyframes rocket{0%,100%{transform:translate(0,0) rotate(-5deg)}50%{transform:translate(15px,-14px) rotate(6deg)}}
+@keyframes twinkle{0%,100%{transform:scale(.85) rotate(0);opacity:.55}50%{transform:scale(1.25) rotate(15deg);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ body:before,body:after,.wrap:before,.top:before,.top:after,.card:before{animation:none}
+}
+</style>
+
+</head>
+<body>
+<div class="sky-decor" aria-hidden="true">🌤️ 🦋 ✨</div><div class="wrap">
+<header class="top">
+<h1>🚀 Misi Bahasa Melayu</h1>
+<p class="sub">🚀 Terokai 3 dunia pembelajaran dan kumpul bintang!</p><p style="font-size:13px;font-weight:800;color:#7c3aed">🔊 Tekan “Bunyi” untuk mendengar arahan dalam Bahasa Melayu.</p>
+<div class="badges"><span class="badge">🎓 Tahun 1</span><span class="badge">👂 Mendengar & Bertutur</span><span class="badge">⭐ Kumpul Bintang</span></div>
+</header>
+<main class="card" id="app"></main>
+<p class="credit">👨🏻‍🏫 Pembina: <strong>SYAWAL</strong><br>🏫 Sekolah: <strong>SK (P) JALAN YAHYA AWAL</strong></p>
+</div>
+<script>
+const levels=[
+{name:"Mudah",icon:"🌱",qs:[
+["Huruf awal perkataan “bola” ialah…",["B","D","K","M"],0],
+["Pilih perkataan bermula dengan huruf “m”.",["buku","mata","susu","roti"],1],
+["🐟 Apakah nama haiwan ini?",["ikan","ayam","baju","meja"],0],
+["Huruf awal perkataan “rumah” ialah…",["R","S","T","L"],0]
+]},
+{name:"Sederhana",icon:"🌟",qs:[
+["Pilih ejaan yang betul.",["kucin","kucing","kuceng","kucingg"],1],
+["🍎 Apakah nama benda ini?",["epal","bola","buku","kasut"],0],
+["Pilih perkataan yang bermula dengan huruf “s”.",["meja","susu","ikan","roti"],1],
+["🐱 Apakah nama haiwan ini?",["kucing","ayam","ikan","arnab"],0]
+]},
+{name:"Hebat",icon:"🏆",qs:[
+["Pilih perkataan yang dieja dengan betul.",["sekolah","sakolah","sikolah","sekoloh"],0],
+["Pilih perkataan yang sesuai: “Ali minum ___.”",["batu","susu","kasut","pensel"],1],
+["Ayat manakah yang betul?",["Ini bola saya.","Ini saya bola.","Bola ini saya?","Saya ini bola."],0],
+["Pilih perkataan yang mempunyai bunyi awal yang sama dengan “baju”.",["bola","susu","ikan","roti"],0]
+]}];
+let level=0,q=0,totalStars=0,answered=false;
+const app=document.getElementById("app");
+let audioCtx=null;
+function getAudio(){
+ try{
+  const C=window.AudioContext||window.webkitAudioContext;
+  if(!C)return null;
+  if(!audioCtx)audioCtx=new C();
+  if(audioCtx.state==="suspended")audioCtx.resume();
+  return audioCtx;
+ }catch(e){return null}
+}
+function beep(ok){
+ const c=getAudio();
+ if(!c)return;
+ try{
+  const now=c.currentTime;
+  const o=c.createOscillator(),g=c.createGain();
+  o.connect(g);g.connect(c.destination);
+  o.type=ok?"sine":"square";
+  o.frequency.setValueAtTime(ok?660:220,now);
+  if(ok)o.frequency.exponentialRampToValueAtTime(880,now+.12);
+  g.gain.setValueAtTime(.0001,now);
+  g.gain.exponentialRampToValueAtTime(.18,now+.015);
+  g.gain.exponentialRampToValueAtTime(.0001,now+.28);
+  o.start(now);o.stop(now+.3);
+ }catch(e){}
+}
+function speak(text){
+ try{
+  if(!("speechSynthesis" in window))return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ms-MY";
+  u.rate=0.82;
+  u.pitch=1.05;
+  u.volume=1;
+  const voices=window.speechSynthesis.getVoices();
+  const malay=voices.find(v=>/^ms(-|_)?MY$/i.test(v.lang)) ||
+              voices.find(v=>/^ms/i.test(v.lang)) ||
+              voices.find(v=>/Malay|Bahasa Melayu/i.test(v.name));
+  if(malay)u.voice=malay;
+  window.speechSynthesis.speak(u);
+ }catch(e){}
+}
+
+function bunyiTekanJawapan(){
+  try{
+    const a = getAudio();
+    const now = a.currentTime;
+    const o = a.createOscillator();
+    const g = a.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(520, now);
+    o.frequency.exponentialRampToValueAtTime(760, now + 0.07);
+    g.gain.setValueAtTime(0.0001, now);
+    g.gain.exponentialRampToValueAtTime(0.18, now + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, now + 0.10);
+    o.connect(g); g.connect(a.destination);
+    o.start(now); o.stop(now + 0.11);
+  }catch(e){}
+}
+
+function suaraBetul(){speak("Jawapan kamu betul. Syabas! Kamu mendapat satu bintang.");}
+function suaraSalah(){speak("Jawapan kamu belum tepat. Cuba lagi.");}
+function suaraMula(){speak("Selamat datang ke Misi Bahasa Melayu Tahun Satu. Tekan jawapan yang betul.");}
+function stars(n){return "★".repeat(n)+"☆".repeat(3-n)}
+function confetti(){const box=document.createElement("div");box.className="confetti";for(let k=0;k<18;k++){const s=document.createElement("span");s.className="piece";s.textContent=["⭐","🎉","✨","🌟"][k%4];s.style.left=(10+Math.random()*80)+"%";s.style.animationDelay=(Math.random()*.25)+"s";box.appendChild(s)}app.appendChild(box);setTimeout(()=>box.remove(),1500)}
+function render(){
+ const L=levels[level],x=L.qs[q];answered=false;
+ app.innerHTML=`<div class="levels">${levels.map((z,i)=>`<div class="level ${i===level?"active":i<level?"done":""}"><div style="font-size:28px">${z.icon}</div><div>${z.name}</div><small>${i===0?"Kenali":i===1?"Cabar":"Juara"}</small></div>`).join("")}</div>
+ <div class="stats"><span>🎯 Tahap ${level+1}: ${L.name}</span><span class="stars">${stars(totalStars)}</span></div>
+ <div class="progress"><div class="fill" style="width:${q/L.qs.length*100}%"></div></div>
+ <div class="mission">🧭 Misi ${q+1} daripada ${L.qs.length}</div>
+ <div class="q">${x[0]}</div>
+ <div class="opts">${x[1].map((v,n)=>`<button class="opt" data-n="${n}">${v}</button>`).join("")}</div>
+ <div class="feedback" id="fb"></div>
+ <div class="actions"><button class="btn alt" id="sound" type="button">🔊 Bunyi Jawapan</button><button class="btn" id="next" type="button" disabled>Seterusnya →</button></div>`;
+ app.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>answer(b)));
+ app.querySelector("#next").addEventListener("click",next);
+ app.querySelector("#sound").addEventListener("click",()=>{beep(true);suaraMula();});
+}
+function answer(btn){
+ 
+  bunyiTekanJawapan();
+  getAudio();
+if(answered)return;answered=true;
+ const x=levels[level].qs[q],pick=+btn.dataset.n;
+ app.querySelectorAll(".opt").forEach(b=>b.disabled=true);
+ if(pick===x[2]){totalStars=Math.min(3,totalStars+1);btn.classList.add("correct");document.getElementById("fb").textContent="✅ Jawapan kamu betul! Syabas! Kamu mendapat satu bintang. ⭐";beep(true);suaraBetul();confetti()}
+ else{btn.classList.add("wrong");app.querySelectorAll(".opt")[x[2]].classList.add("correct");document.getElementById("fb").textContent="💡 Jawapan kamu belum tepat. Cuba lagi.";beep(false);suaraSalah()}
+ document.getElementById("next").disabled=false;
+}
+function next(){q++;if(q>=levels[level].qs.length){level++;q=0;if(level>=levels.length){finish();return}}render()}
+function finish(){
+ app.innerHTML=`<div class="center"><div class="bigstars">🏆 ⭐ ⭐ ⭐</div><h2>Misi Selesai!</h2><div class="score">${totalStars} ⭐</div><p>Syabas, kamu telah menamatkan semua 3 tahap!</p><p class="mission">Mudah → Sederhana → Hebat</p><p><strong>Pembina: SYAWAL</strong><br>SK (P) JALAN YAHYA AWAL</p><div class="actions"><button class="btn" id="again" type="button">🔄 Main Semula</button></div></div>`;
+ beep(true);confetti();document.getElementById("again").addEventListener("click",()=>{level=0;q=0;totalStars=0;render()});
+}
+render();
+</script>
+
+<script>
+(function(){
+  if(window.answerTapAudioInstalled) return;
+  window.answerTapAudioInstalled = true;
+  document.addEventListener("click", function(ev){
+    const el = ev.target.closest("button");
+    if(!el) return;
+    const txt = (el.textContent || "").trim();
+    // Avoid double-playing the dedicated sound button.
+    if(el.id === "soundBtn" || txt.includes("Bunyi")) return;
+    // Answer choices in this game are the buttons containing answer text.
+    if(el.closest("#answers, .answers, #options, .options, .jawapan, .answer") || 
+       el.dataset.answer !== undefined || /^(A|B|C|D)\b/i.test(txt)) {
+      try { bunyiTekanJawapan(); getAudio(); } catch(e){}
+    }
+  }, true);
+})();
+</script>
+
+</body>
+</html>
